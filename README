@@ -1,0 +1,21 @@
+#asp-mode
+
+##About
+
+A simple ASP mode for Emacs which does syntax highlighting and
+indentation support.
+
+I needed to use ASP at work in Emacs and it's a pain in the ass to
+manually indent. There's a Visual Basic Mode knocking about which
+automatically capitalises every keyboard you type but I have no use
+for that, and the mode doesn't do keyword highlighting. This does.
+
+##Installation
+
+To automatically load files with a .asp extension, put the following                                                                                        
+lines in your .emacs file:                                                                                                                                  
+
+    (autoload 'asp-mode "asp-mode")
+    (setq auto-mode-alist 
+       (cons '("\\.asp\\'" . asp-mode) auto-mode-alist))
+
