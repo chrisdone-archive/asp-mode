@@ -58,22 +58,22 @@
 (add-to-list 'auto-mode-alist '("\\.asp\\'" . asp-mode))
 
 (defconst asp-font-lock-keywords-1
-;  (insert (regexp-opt '("if" "sub" "function" "then" "else" "end" "while" "do" "for" "each" "in" "set") t))
+;  (insert (regexp-opt '("if" "sub" "function" "then" "else" "end" "while" "do" "for" "each" "in" "set" "wend" "next" "loop") t))
   (list
-   '("\\<\\(do\\|e\\(?:ach\\|lse\\|nd\\)\\|f\\(?:or\\|unction\\)\\|i[fn]\\|s\\(?:et\\|ub\\)\\|then\\|while\\)\\>" . font-lock-keyword-face))
+   '("\\<\\(do\\|e\\(?:ach\\|lse\\|nd\\)\\|f\\(?:or\\|unction\\)\\|i[fn]\\|loop\\|next\\|s\\(?:et\\|ub\\)\\|then\\|w\\(?:end\\|hile\\)\\)\\>" . font-lock-keyword-face))
   "Keywords to highlight in ASP mode. (There aren't many.)")
 
 (defconst asp-font-lock-keywords-2
-; (insert (regexp-opt '("empty" "isempty" "nothing" "is nothing" "null" "isnull" "true" "false") t))
+; (insert (regexp-opt '("empty" "nothing" "null" "true" "false") t))
   (append asp-font-lock-keywords-1
 	    (list
-	        '("\\<\\(empty\\|false\\|is\\(?: nothing\\|empty\\|null\\)\\|n\\(?:othing\\|ull\\)\\|true\\)\\>" . font-lock-constant-face))))
+	        '("\\<\\(empty\\|false\\|n\\(?:othing\\|ull\\)\\|true\\)\\>" . font-lock-constant-face))))
 
 (defconst asp-font-lock-keywords-3
-; (insert (regexp-opt '("@codepage" "@enablesessionstate" "@language" "@lcid" "@transaction" "abandon" "session" "addheader" "response" "appendtolog" "response" "application" "application_onend" "application" "application_onstart" "application" "aspcode" "asperror" "aspdescription" "asperror" "asperror" "binaryread" "request" "binarywrite" "response" "buffer" "response" "cachecontrol" "response" "category" "asperror" "charset" "response" "clear" "response" "clientcertificate" "collection" "request" "codepage" "response" "codepage" "session" "column" "asperror" "contents" "collection" "application" "contents" "collection" "session" "contenttype" "response" "cookies" "collection" "request" "cookies" "collection" "response" "create" "server" "description" "asperror" "end" "response" "execute" "server" "expires" "response" "expiresabsolute" "response" "file" "asperror" "flush" "response" "form" "collection" "request" "getlasterror" "server" "htmlencode" "server" "isclientconnected" "response" "lcid" "response" "lcid" "session" "line" "asperror" "lock" "application" "mappath" "server" "number" "asperror" "context" "onendpage" "custom" "onstartpage" "custom" "ontransactionabort" "context" "ontransactioncommit" "context" "pics" "response" "querystring" "collection" "request" "redirect" "response" "remove" "application" "remove" "session" "removeall" "application" "removeall" "session" "request" "response" "scripttimeout" "server" "server" "servervariables" "collection" "request" "session" "session_onend" "session" "session_onstart" "session" "sessionid" "session" "setabort" "context" "setcomplete" "context" "source" "asperror" "statics" "collection" "application" "statics" "collection" "session" "status" "response" "timeout" "session" "totalbytes" "request" "transfer" "server" "unlock" "application" "urlencode" "server" "write") t))
+; (insert (regexp-opt '("@codepage" "isempty" "isnull" "@enablesessionstate" "@language" "@lcid" "@transaction" "abandon" "session" "addheader" "response" "appendtolog" "response" "application" "application_onend" "application" "application_onstart" "application" "aspcode" "asperror" "aspdescription" "asperror" "asperror" "binaryread" "request" "binarywrite" "response" "buffer" "response" "cachecontrol" "response" "category" "asperror" "charset" "response" "clear" "response" "clientcertificate" "collection" "request" "codepage" "response" "codepage" "session" "column" "asperror" "contents" "collection" "application" "contents" "collection" "session" "contenttype" "response" "cookies" "collection" "request" "cookies" "collection" "response" "create" "server" "description" "asperror" "end" "response" "execute" "server" "expires" "response" "expiresabsolute" "response" "file" "asperror" "flush" "response" "form" "collection" "request" "getlasterror" "server" "htmlencode" "server" "isclientconnected" "response" "lcid" "response" "lcid" "session" "line" "asperror" "lock" "application" "mappath" "server" "number" "asperror" "context" "onendpage" "custom" "onstartpage" "custom" "ontransactionabort" "context" "ontransactioncommit" "context" "pics" "response" "querystring" "collection" "request" "redirect" "response" "remove" "application" "remove" "session" "removeall" "application" "removeall" "session" "request" "response" "scripttimeout" "server" "server" "servervariables" "collection" "request" "session" "session_onend" "session" "session_onstart" "session" "sessionid" "session" "setabort" "context" "setcomplete" "context" "source" "asperror" "statics" "collection" "application" "statics" "collection" "session" "status" "response" "timeout" "session" "totalbytes" "request" "transfer" "server" "unlock" "application" "urlencode" "server" "write") t))
   (append asp-font-lock-keywords-2
 	    (list
-	        '("\\<\\(@\\(?:codepage\\|enablesessionstate\\|l\\(?:anguage\\|cid\\)\\|transaction\\)\\|a\\(?:bandon\\|ddheader\\|pp\\(?:endtolog\\|lication\\(?:_on\\(?:end\\|start\\)\\)?\\)\\|sp\\(?:code\\|description\\|error\\)\\)\\|b\\(?:inary\\(?:read\\|write\\)\\|uffer\\)\\|c\\(?:a\\(?:checontrol\\|tegory\\)\\|harset\\|l\\(?:ear\\|ientcertificate\\)\\|o\\(?:depage\\|l\\(?:\\(?:lectio\\|um\\)n\\)\\|nte\\(?:nt\\(?:s\\|type\\)\\|xt\\)\\|okies\\)\\|reate\\|ustom\\)\\|description\\|e\\(?:nd\\|x\\(?:ecute\\|pires\\(?:absolute\\)?\\)\\)\\|f\\(?:ile\\|lush\\|orm\\)\\|getlasterror\\|htmlencode\\|isclientconnected\\|l\\(?:cid\\|ine\\|ock\\)\\|mappath\\|number\\|on\\(?:endpage\\|startpage\\|transaction\\(?:\\(?:abor\\|commi\\)t\\)\\)\\|pics\\|querystring\\|re\\(?:direct\\|move\\(?:all\\)?\\|quest\\|sponse\\)\\|s\\(?:cripttimeout\\|e\\(?:rver\\(?:variables\\)?\\|ssion\\(?:_on\\(?:end\\|start\\)\\|id\\)?\\|t\\(?:abort\\|complete\\)\\)\\|ource\\|tat\\(?:\\(?:ic\\|u\\)s\\)\\)\\|t\\(?:imeout\\|otalbytes\\|ransfer\\)\\|u\\(?:nlock\\|rlencode\\)\\|write\\)\\>" . font-lock-builtin-face))))
+	        '("\\<\\(@\\(?:codepage\\|enablesessionstate\\|l\\(?:anguage\\|cid\\)\\|transaction\\)\\|a\\(?:bandon\\|ddheader\\|pp\\(?:endtolog\\|lication\\(?:_on\\(?:end\\|start\\)\\)?\\)\\|sp\\(?:code\\|description\\|error\\)\\)\\|b\\(?:inary\\(?:read\\|write\\)\\|uffer\\)\\|c\\(?:a\\(?:checontrol\\|tegory\\)\\|harset\\|l\\(?:ear\\|ientcertificate\\)\\|o\\(?:depage\\|l\\(?:\\(?:lectio\\|um\\)n\\)\\|nte\\(?:nt\\(?:s\\|type\\)\\|xt\\)\\|okies\\)\\|reate\\|ustom\\)\\|description\\|e\\(?:nd\\|x\\(?:ecute\\|pires\\(?:absolute\\)?\\)\\)\\|f\\(?:ile\\|lush\\|orm\\)\\|getlasterror\\|htmlencode\\|is\\(?:clientconnected\\|empty\\|null\\)\\|l\\(?:cid\\|ine\\|ock\\)\\|mappath\\|number\\|on\\(?:endpage\\|startpage\\|transaction\\(?:\\(?:abor\\|commi\\)t\\)\\)\\|pics\\|querystring\\|re\\(?:direct\\|move\\(?:all\\)?\\|quest\\|sponse\\)\\|s\\(?:cripttimeout\\|e\\(?:rver\\(?:variables\\)?\\|ssion\\(?:_on\\(?:end\\|start\\)\\|id\\)?\\|t\\(?:abort\\|complete\\)\\)\\|ource\\|tat\\(?:\\(?:ic\\|u\\)s\\)\\)\\|t\\(?:imeout\\|otalbytes\\|ransfer\\)\\|u\\(?:nlock\\|rlencode\\)\\|write\\)\\>" . font-lock-builtin-face))))
 
 (defvar asp-font-lock-keywords asp-font-lock-keywords-3
   "Default highlighting expressions for ASP mode.")
@@ -86,7 +86,7 @@
   (if (bobp) 
 	  (indent-line-to 0)		   ; First line is always non-indented
 	(let ((not-indented t) cur-indent)
-	  (if (looking-at "^[ \t]*end") ; If the line we are looking at is the end of a block, then decrease the indentation
+	  (if (looking-at "^[ \t]*\\(end.*\\|next\\|loop\\|wend\\)") ; If the line we are looking at is the end of a block, then decrease the indentation
 		  (progn
 			(save-excursion
 			  (forward-line -1)
@@ -96,7 +96,7 @@
 		(save-excursion
 		  (while not-indented ; Iterate backwards until we find an indentation hint
 			(forward-line -1)
-			(if (looking-at "^[ \t]*end") ; This hint indicates that we need to indent at the level of the END_ token
+			(if (looking-at "^[ \t]*\\(end.*\\|next\\|loop\\|wend\\)") ; This hint indicates that we need to indent at the level of the END_ token
 				(progn
 				  (setq cur-indent (current-indentation))
 				  (setq not-indented nil))
