@@ -121,7 +121,7 @@
     ;; Comment start with # and end with a newline
     (modify-syntax-entry ?\' "<")
     (modify-syntax-entry ?\n ">")
-    
+    (modify-syntax-entry ?\\ ".")
     asp-mode-syntax-table)
   "Syntax table for asp-mode")
   
