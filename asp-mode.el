@@ -136,6 +136,8 @@
   ;; Register our indentation function
   (set (make-local-variable 'indent-line-function) 'asp-indent-line)  
   (set (make-local-variable 'default-tab-width) 4)
+  (make-variable-buffer-local 'comment-start)
+  (setq comment-start "' ")
   (setq major-mode 'asp-mode)
   (setq mode-name "ASP")
   (run-hooks 'asp-mode-hook))
